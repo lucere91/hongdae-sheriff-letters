@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F3F7FC">
+<title>지웅 대표님께</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+:root{--bg:#F3F7FC;--paper:#FFFEFA;--ink:#252A31;--body:#363B42;--muted:#7D8895;--line:#E9EDF2;--blue:#145EAA;--blue2:#2A75C7;--blue3:#0F4B89}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg)}
+body{font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.02em}
+.page{width:min(100%,480px);min-height:100svh;margin:0 auto;padding:0 14px 54px;overflow-x:hidden;background:radial-gradient(circle at 50% 12%,rgba(56,120,195,.045),transparent 30%),linear-gradient(180deg,#FAFCFF 0%,#F3F7FC 100%)}
+.letter{min-height:100svh}
+.letter>summary{list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent;height:100svh;min-height:620px;display:flex;align-items:center;justify-content:center;position:relative;outline:none}
+.letter>summary::-webkit-details-marker{display:none}
+.envelope-wrap{width:min(82vw,318px);aspect-ratio:1.58/1;position:relative;perspective:1200px;transform-origin:50% 50%}
+.recipient{position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:500;letter-spacing:-.03em;pointer-events:none}
+.envelope-card{position:absolute;inset:0;transform-style:preserve-3d;filter:drop-shadow(0 12px 22px rgba(24,61,103,.11))}
+.face{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.front{overflow:hidden;background:radial-gradient(circle at 86% 10%,rgba(147,204,255,.09),transparent 30%),linear-gradient(145deg,#1A67B5 0%,#155EA9 58%,#104E8E 100%);border:1px solid rgba(255,255,255,.10)}
+.front:after{content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.055);border-radius:6px}
+.back{transform:rotateY(180deg);background:linear-gradient(145deg,#1A63AE,#104D8C);overflow:visible}
+.peek{position:absolute;z-index:2;left:8%;right:8%;bottom:7%;height:79%;border-radius:7px 7px 3px 3px;background:var(--paper);box-shadow:0 5px 14px rgba(22,53,87,.08);transform:translateY(37%);opacity:0}
+.peek:before{content:"";position:absolute;left:20px;top:18px;width:30px;height:1px;border-radius:999px;background:var(--blue);opacity:.30}
+.pocket-left,.pocket-right,.pocket-bottom{position:absolute;inset:0;z-index:3;pointer-events:none}
+.pocket-left{clip-path:polygon(0 34%,52% 68%,0 100%);background:linear-gradient(135deg,#1A63AE,#135496)}
+.pocket-right{clip-path:polygon(100% 34%,48% 68%,100% 100%);background:linear-gradient(225deg,#1A63AE,#135496)}
+.pocket-bottom{clip-path:polygon(0 100%,50% 63%,100% 100%);background:linear-gradient(180deg,#15599F,#0F4782)}
+.flap{position:absolute;left:0;top:0;width:100%;height:61%;z-index:5;transform-origin:50% 0%;transform-style:preserve-3d}
+.flap:before,.flap:after{content:"";position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 100%);border-radius:10px 10px 0 0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flap:before{background:linear-gradient(180deg,#2472C0,#155CA6)}
+.flap:after{background:linear-gradient(180deg,#DAECFE,#F1F7FD);transform:rotateX(180deg)}
+.hint{position:absolute;left:0;right:0;top:calc(50% + 130px);text-align:center;color:#8B97A5;font-size:11.5px}
+.hint:after{content:"";display:block;width:18px;height:1px;margin:10px auto 0;background:#C8D1DA}
+.letter[open]>summary{animation:collapseSummary 1.85s forwards}.letter[open] .recipient{animation:recipientOut .18s forwards}.letter[open] .envelope-card{animation:flipEnvelope .58s .18s forwards cubic-bezier(.2,.72,.22,1)}.letter[open] .flap{animation:openFlap .52s .78s forwards cubic-bezier(.2,.72,.22,1)}.letter[open] .peek{animation:peekPaper .52s 1.02s forwards cubic-bezier(.2,.72,.22,1)}.letter[open] .envelope-wrap{animation:compactEnvelope .58s 1.34s forwards cubic-bezier(.2,.72,.22,1)}.letter[open] .hint{animation:hintOut .15s forwards}
+@keyframes recipientOut{to{opacity:0;transform:translateY(-3px)}}@keyframes flipEnvelope{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}@keyframes openFlap{from{transform:rotateX(0)}to{transform:rotateX(177deg)}}@keyframes peekPaper{0%{opacity:0;transform:translateY(37%)}20%{opacity:1}100%{opacity:1;transform:translateY(-28%)}}@keyframes compactEnvelope{from{transform:scale(1) translateY(0)}to{transform:scale(.34) translateY(-28px)}}@keyframes hintOut{to{opacity:0}}@keyframes collapseSummary{0%,72%{height:100svh;min-height:620px}100%{height:108px;min-height:108px}}
+.paper-area{opacity:0;transform:translateY(10px);pointer-events:none}.letter[open] .paper-area{animation:showLetter .42s 1.78s forwards ease;pointer-events:auto}@keyframes showLetter{to{opacity:1;transform:none}}
+.paper{position:relative;background:linear-gradient(180deg,#FFFEFA 0%,#FFFDF8 100%);border:1px solid rgba(40,49,58,.055);border-radius:2px;box-shadow:0 8px 20px rgba(35,49,65,.035);padding:37px 29px 34px}
+.paper-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:34px;font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;font-size:9.5px;font-weight:500;letter-spacing:.08em;color:#9AA5B1}.paper-meta .mark{width:18px;height:1px;background:#79AADB}
+.salutation{margin:0 0 29px;font-family:"AppleMyungjo","NanumMyeongjo","Batang","Times New Roman",serif;font-size:21px;line-height:1.55;font-weight:600;letter-spacing:-.045em;color:#24282D}
+.copy{font-family:"AppleMyungjo","NanumMyeongjo","Batang","Times New Roman",serif;font-size:16.4px;line-height:2.02;font-weight:400;color:#363B41;word-break:keep-all;letter-spacing:-.025em}.copy.intro{color:#4A5159}.copy p{margin:0 0 14px}.copy p:last-child{margin-bottom:0}
+.soft-break{height:17px}.rule{width:26px;height:1px;margin:31px 0 30px;background:#B9CFE5}
+.quote{margin:34px 0 33px;padding:2px 0 3px 18px;border-left:2px solid rgba(20,94,170,.42)}.quote p{margin:0;font-family:"AppleMyungjo","NanumMyeongjo","Batang","Times New Roman",serif;font-size:17.1px;line-height:1.92;font-weight:600;color:#214B73}.quote cite{display:block;margin-top:12px;font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;font-size:10px;font-style:normal;letter-spacing:.03em;color:#8797A8}
+.sign{margin-top:38px;padding-top:22px;border-top:1px solid #ECEFF2;text-align:right;font-family:"AppleMyungjo","NanumMyeongjo","Batang","Times New Roman",serif;font-size:15px;font-weight:600;color:#30363C}
+.close-note{margin:18px 0 0;text-align:center;color:#A0AAB5;font-size:10px}
+@media (min-width:430px){.paper{padding:42px 35px 38px}}
+@media (prefers-reduced-motion:reduce){.letter[open]>summary{height:108px;min-height:108px;animation:none}.letter[open] .recipient{opacity:0;animation:none}.letter[open] .envelope-card{transform:rotateY(180deg);animation:none}.letter[open] .flap{transform:rotateX(177deg);animation:none}.letter[open] .peek{opacity:0;animation:none}.letter[open] .envelope-wrap{transform:scale(.34) translateY(-28px);animation:none}.letter[open] .hint{opacity:0;animation:none}.letter[open] .paper-area{opacity:1;transform:none;animation:none}}
+</style></head>
+<body><main class="page"><details class="letter"><summary aria-label="To. 지웅 대표님 편지 열기"><div class="envelope-wrap"><div class="recipient">To. 지웅 대표님</div><div class="envelope-card"><div class="face front"></div><div class="face back"><div class="peek"></div><div class="flap"></div><div class="pocket-left"></div><div class="pocket-right"></div><div class="pocket-bottom"></div></div></div></div><div class="hint">눌러서 열어보세요</div></summary>
+<section class="paper-area"><article class="paper"><div class="paper-meta"><span class="mark"></span><span>2026. 09. 30</span></div>
+<h1 class="salutation">지웅 대표님께,</h1>
+<div class="copy intro"><p>제가 원래 말로도, 글로도 마음을 표현하는 데 조금 서툰 편이라 마지막 인사를 어떻게 전할지 꽤 오래 고민했습니다.</p><p>진짜 악필이라 손편지는 일찌감치 포기하고, 이렇게 제 방식대로 작은 편지를 만들어봤습니다.</p></div>
+<div class="rule"></div>
+<div class="copy"><p>2024년 12월 중순부터 지금까지, 1년 9개월 남짓한 시간을 밸류에서 보냈네요.</p><p>길다면 길고 짧다면 짧은 시간이지만, 돌아보면 그동안 참 많은 일이 있었던 것 같습니다.</p><div class="soft-break"></div><p>새로운 사업을 준비하면서 건축물대장까지 바꾸는 일도 있었고, 크고 작은 일들이 정말 많았는데 그때마다 대표님께서 가장 가까이에서 함께해주시고 도와주셔서 많이 감사했습니다.</p><p>먼 길 출장을 가야 할 때도, 쉽지 않은 일을 해야 할 때도 늘 적극적으로 함께해주시고, 필요한 지원이나 투자가 있을 때도 아끼지 않고 힘을 실어주셔서 참 든든했고 감사했습니다.</p><div class="soft-break"></div><p>퇴사 말씀을 드렸던 날에는 제가 원래 감정 표현을 잘하는 사람이 아니다 보니 제 마음을 제대로 전하지 못한 것 같아 계속 마음에 남았습니다ㅠㅠ</p><p>저에게도 결코 가볍게 내린 결정은 아니었고, 대표님께서 보여주신 마음이 정말 감사했습니다.</p><p>제가 떠나는 이유가 회사나 대표님께서 부족하게 해주셔서가 아니라는 말씀도 꼭 다시 드리고 싶었습니다.</p><p>오히려 충분히 믿어주시고 지원해주셨기 때문에 앞으로의 사업 환경과 방향을 생각하면서 더 오래 고민했던 것 같습니다.</p><div class="soft-break"></div><p>그리고 대표님과 함께 일했던 시간 동안 업무적으로 배운 것도 많지만, 사람을 대하는 태도나 함께 일하는 방식에서도 많이 배웠습니다.</p><div class="soft-break"></div><p>엘리엇의 『사중주』 연작시 중 「리틀 기딩」에 제가 좋아하는 구절이 있습니다.</p><blockquote class="quote"><p>“끝을 맺는 것은 곧 시작을 만드는 일이고, 그 끝이 우리가 다시 출발하는 곳이다.”</p><cite>T. S. Eliot · Little Gidding</cite></blockquote><p>저는 이 말처럼 어떤 끝이 꼭 관계의 단절을 의미한다고 생각하지는 않는 편입니다.</p><p>회사에서 함께 일하는 시간은 여기서 마무리되지만, 그 이후에는 또 다른 방식으로 편하게 이어질 수도 있다고 생각합니다.</p><p>그러니 이제 회사 사람이 아니라고 괜히 연락을 조심하실 필요는 없습니다. 생각나실 때 편하게 연락 주세요. 저도 종종 그렇게 하겠습니다 :)</p><div class="soft-break"></div><p>1년 9개월 동안 함께할 수 있어서 정말 감사했습니다.</p><p>대표님과 밸류에서의 좋은 기억 오래 간직하겠습니다.</p></div>
+<div class="sign">희원 드림</div></article><p class="close-note">위의 작은 봉투를 누르면 다시 닫힙니다.</p></section></details></main></body></html>

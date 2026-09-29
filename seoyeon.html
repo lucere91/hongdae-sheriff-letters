@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff9ec">
+<title>서연 책임님에게 - 행운의 편지</title>
+<style>
+:root{--cream:#FFF9EC;--paper:#FFFDF7;--ink:#171717;--sky:#63C7F2;--sky-light:#9DDEFA;--sky-dark:#45AADB;--mint:#CFF2DD;--green:#9BE35A;--yellow:#FFD85B}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--cream)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.page{width:min(100%,480px);min-height:100svh;margin:0 auto;overflow-x:hidden;background:radial-gradient(circle at 16px 16px,#F7E8B9 0 2px,transparent 2.4px) 0 0/66px 66px,radial-gradient(circle at 12px 12px,#D8F0F7 0 2px,transparent 2.4px) 31px 30px/66px 66px,var(--cream)}
+.mail{min-height:100svh}.mail>summary{list-style:none;height:100svh;min-height:640px;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}.mail>summary::-webkit-details-marker{display:none}
+.intro{height:100%;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 18px 30px}
+.title-wrap{position:absolute;top:8%;left:16px;right:16px;text-align:center;z-index:30}.title{margin:0;font-size:clamp(34px,8.8vw,44px);line-height:1.02;font-weight:900;letter-spacing:-.075em;transform:rotate(-1deg)}.subtitle{display:inline-block;margin-top:12px;padding:7px 13px 6px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);font-size:12px;font-weight:900;letter-spacing:-.035em;box-shadow:2px 3px 0 var(--ink);transform:rotate(1.2deg)}
+.scene{width:min(88vw,360px);position:relative;margin-top:88px;display:flex;flex-direction:column;align-items:center}
+.sticker{position:absolute;width:72px;aspect-ratio:1/1;object-fit:contain;z-index:12;filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(3px 4px 0 rgba(0,0,0,.16))}
+.s1{left:0;top:-82px;transform:rotate(-8deg) scale(.92)}.s2{right:-2px;top:-74px;transform:rotate(7deg) scale(1)}.s3{left:20px;bottom:-70px;transform:rotate(6deg) scale(.89)}.s4{right:22px;bottom:-74px;transform:rotate(-5deg) scale(.91)}.s5{left:50%;top:-96px;transform:translateX(-50%) rotate(1deg) scale(.80)}
+.spark{position:absolute;z-index:9;font-size:23px;font-weight:900}.sp1{left:13px;top:-24px;transform:rotate(-13deg)}.sp2{right:17px;top:-12px;transform:rotate(11deg)}.sp3{left:20px;bottom:-112px;transform:rotate(7deg)}.sp4{right:20px;bottom:-108px;transform:rotate(-8deg)}
+.envelope{width:min(79vw,308px);aspect-ratio:1.55/1;position:relative;perspective:1200px;z-index:10;filter:drop-shadow(6px 8px 0 rgba(0,0,0,.09));transform-origin:50% 50%}
+.body-svg{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible}.note-peek{position:absolute;z-index:3;left:9%;right:9%;bottom:8%;height:80%;background:var(--paper);border:4px solid var(--ink);border-radius:5px 5px 2px 2px;transform:translateY(43%);opacity:0}.note-peek:before{content:"";position:absolute;left:18px;right:18px;top:18px;height:4px;border-radius:99px;background:#EEE9DB}
+.flap-wrap{position:absolute;z-index:8;left:0;right:0;top:0;height:55%;transform-origin:50% 0%;transform:scaleY(1);will-change:transform}.flap-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.flap-back{display:none}.flap-shape{transition:fill .18s ease}
+.address-label{position:absolute;z-index:18;left:50%;top:24%;transform:translateX(-50%) rotate(-1deg);min-width:150px;padding:6px 12px 5px;background:#FFFDF7;border:3px solid #171717;border-radius:999px;text-align:center;font-size:14px;line-height:1;font-weight:900;letter-spacing:-.04em;box-shadow:2px 3px 0 rgba(0,0,0,.10);pointer-events:none}
+.heart-svg{position:absolute;z-index:15;left:50%;bottom:12%;width:46px;height:42px;transform:translateX(-50%);overflow:visible}.hint{margin-top:22px;font-size:12px;font-weight:800;color:#555;letter-spacing:-.03em}.hint .arrow{display:inline-block;margin-right:6px;font-size:17px;font-weight:900;transform:translateY(1px)}
+.mail[open] .flap-shape{fill:#E5F4FF}.mail[open] .title-wrap,.mail[open] .sticker,.mail[open] .spark,.mail[open] .hint,.mail[open] .address-label{animation:fadeOut .22s forwards}.mail[open] .flap-wrap{animation:openFlap .62s .14s forwards cubic-bezier(.2,.72,.22,1)}.mail[open] .note-peek{animation:raiseNote .58s .55s forwards cubic-bezier(.2,.72,.22,1)}.mail[open] .envelope{animation:shrinkEnvelope .58s 1.12s forwards cubic-bezier(.2,.72,.22,1)}.mail[open]>summary{animation:collapseIntro 1.72s forwards}
+@keyframes fadeOut{to{opacity:0}}@keyframes openFlap{to{transform:scaleY(-1)}}@keyframes raiseNote{0%{opacity:0;transform:translateY(43%)}20%{opacity:1}100%{opacity:1;transform:translateY(-25%)}}@keyframes shrinkEnvelope{from{transform:scale(1) translateY(0)}to{transform:scale(.32) translateY(-72px)}}@keyframes collapseIntro{0%,74%{height:100svh;min-height:640px}100%{height:118px;min-height:118px}}
+.letter-area{opacity:0;transform:translateY(12px);pointer-events:none;padding:0 14px 48px}.mail[open] .letter-area{animation:showLetter .4s 1.65s forwards ease;pointer-events:auto}@keyframes showLetter{to{opacity:1;transform:none}}
+.letter-card{background:var(--mint);border:4px solid var(--ink);padding:12px;transform:rotate(.2deg);box-shadow:5px 7px 0 rgba(0,0,0,.09)}
+.inner-paper{position:relative;min-height:640px;background:#FFFDF7;border:3px solid var(--ink);padding:18px;overflow:hidden}
+.lined-paper{position:relative;min-height:594px;border:3px solid var(--ink);background:repeating-linear-gradient(to bottom,#FFFDF7 0px,#FFFDF7 31px,#DCE9F3 31px,#DCE9F3 33px);padding:22px 22px 26px}.lined-paper:before{content:"";position:absolute;top:0;bottom:0;left:48px;width:2px;background:#F1B4BA;opacity:.95}
+.letter-badge{display:inline-block;padding:5px 10px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);font-size:11px;font-weight:900;box-shadow:2px 2px 0 var(--ink);transform:rotate(-1.2deg);position:relative;z-index:2}
+.letter-title{position:relative;z-index:2;margin:18px 0 22px 0;font-size:27px;line-height:1.15;font-weight:900;letter-spacing:-.06em}
+.paper-copy{position:relative;z-index:2;margin:0;padding-left:42px;padding-right:10px;font-size:14px;line-height:2.08;font-weight:600;color:#555;word-break:keep-all}.paper-copy p{margin:0 0 17px}.paper-copy strong{color:var(--ink)}
+.paper-sign{position:relative;z-index:2;margin-top:14px;padding-left:42px;padding-right:10px;font-size:14px;line-height:2.1;font-weight:700;color:#222}
+.flow-sticker{width:42px;height:42px;object-fit:contain;shape-outside:circle(48%);filter:drop-shadow(1px 0 0 #fff) drop-shadow(-1px 0 0 #fff) drop-shadow(0 1px 0 #fff) drop-shadow(0 -1px 0 #fff) drop-shadow(2px 2px 0 rgba(0,0,0,.12))}
+.flow-sticker.left{float:left;margin:2px 10px 4px -38px}.flow-sticker.right{float:right;margin:2px 0 4px 10px}.fs1{transform:rotate(8deg)}.fs2{transform:rotate(-8deg)}.fs3{transform:rotate(7deg)}.fs4{transform:rotate(-7deg)}.fs5{transform:rotate(9deg)}
+.close-note{text-align:center;margin:14px 0 0;font-size:10px;color:#888}
+@media (prefers-reduced-motion:reduce){.mail[open]>summary{height:118px;min-height:118px;animation:none}.mail[open] .title-wrap,.mail[open] .sticker,.mail[open] .spark,.mail[open] .hint,.mail[open] .address-label{opacity:0;animation:none}.mail[open] .flap-wrap{transform:scaleY(-1);animation:none}.mail[open] .note-peek{opacity:0;animation:none}.mail[open] .envelope{transform:scale(.32) translateY(-72px);animation:none}.mail[open] .letter-area{opacity:1;transform:none;animation:none}}
+</style></head>
+<body><main class="page"><details class="mail"><summary aria-label="행운의 편지 열기"><div class="intro"><div class="title-wrap"><h1 class="title">행운의 편지 도착!</h1><div class="subtitle">홍대보안관 탈퇴 기념 특별판</div></div><div class="scene">
+<img class="sticker s1" src="assets/face1.webp" alt=""><img class="sticker s2" src="assets/face2.webp" alt=""><img class="sticker s3" src="assets/face3.webp" alt=""><img class="sticker s4" src="assets/face4.webp" alt=""><img class="sticker s5" src="assets/face5.webp" alt="">
+<div class="spark sp1">✦</div><div class="spark sp2">✧</div><div class="spark sp3">♧</div><div class="spark sp4">♡</div>
+<div class="envelope"><div class="note-peek"></div><svg class="body-svg" viewBox="0 0 310 200" aria-hidden="true"><rect x="3" y="3" width="304" height="194" rx="7" fill="#63C7F2"/><path d="M5 195 L155 112 L305 195 Z" fill="#49A9D4"/><path d="M5 195 L155 112 L305 195" fill="none" stroke="#171717" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="304" height="194" rx="7" fill="none" stroke="#171717" stroke-width="6"/></svg>
+<div class="flap-wrap"><svg class="flap-svg" viewBox="0 0 310 112" aria-hidden="true"><path class="flap-shape" d="M3 3 H307 L155 109 Z" fill="#9DDEFA"/><path d="M3 3 L155 109 L307 3" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="address-label">To. 서연 책임님</div>
+<svg class="heart-svg" viewBox="0 0 64 58" aria-hidden="true"><path d="M32 52 C27 47 8 35 8 20 C8 11 14 5 23 5 C28 5 31 8 32 12 C34 8 37 5 42 5 C51 5 57 11 57 20 C57 35 38 47 32 52 Z" fill="#9BE35A" stroke="#171717" stroke-width="4" stroke-linejoin="round"/></svg></div>
+<div class="hint"><span class="arrow">↑</span>봉투를 눌러 열어보세요</div></div></div></summary>
+<section class="letter-area"><div class="letter-card"><div class="inner-paper"><div class="lined-paper"><div class="letter-badge">🍀 행운의 편지</div><h2 class="letter-title">To. 서연 책임님</h2>
+<div class="paper-copy">
+<p><img class="flow-sticker right fs1" src="assets/face1.webp" alt="">세상에나, 저 전 회사 퇴사할 때도 편지 안 썼는데ㅋㅋ<br>아니 인선 책임님이 편지 써야 되는 거 아니냐고 눈치 주더라고요. 그래서 쓰기 시작했어요.</p>
+<p><img class="flow-sticker left fs2" src="assets/face2.webp" alt="">글씨는 진짜 너무 악필이라 해석하는 미션을 던져드리게 될까 봐 이렇게 만들어봤습니다ㅋㅋ</p>
+<p>아니, 채 2년이 안 되더라고요. 제 근속 기간이 1년 9개월? 조금 안 되는 것 같은데, 함께하는 기간 동안 책임님이 있어서 외롭지 않게 회사 생활했던 것 같습니다ㅠㅠ</p>
+<p><img class="flow-sticker right fs3" src="assets/face3.webp" alt="">e나라도움도 뭐 진짜 어려운 게 별로 없고, 저희 지웅 대표님이 증빙만 잘 만들어 주시면 되거든요ㅋㅋ<br>책임님 너무 걱정하지 마시고, 제가 책임님 연락은 언제든지 다 받을 테니까 이슈 있으면 연락 주세요.</p>
+<p>그리고 우리 케이스티파이 케이스 공구 안 차면 꼭 연락 주세요ㅋㅋ</p>
+<p><img class="flow-sticker left fs4" src="assets/face4.webp" alt="">그리고 진짜 건강이 제일이니까 스트레스 관리 잘하시고, 아프면 꼭 제때제때 병원 가세요ㅠㅠ<br>이명도 계속 신경 쓰이면 미루지 말고 MRI 촬영 가능한 이비인후과에서 한 번 제대로 진료 받아보시고요. 아프지 마세요 진짜ㅠㅠ</p>
+<p><img class="flow-sticker right fs5" src="assets/face5.webp" alt="">회사 밖에서도 종종 봐요 :)</p>
+</div><div class="paper-sign">희원 드림</div></div></div></div><p class="close-note">위의 작은 봉투를 누르면 다시 닫힙니다.</p></section></details></main></body></html>

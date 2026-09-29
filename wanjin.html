@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F3F7FC">
+<title>완진 대표님께</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+:root{
+  --bg:#F3F7FC;
+  --paper:#FFFEFA;
+  --ink:#252A31;
+  --body:#363B42;
+  --muted:#7D8895;
+  --line:#E9EDF2;
+  --blue:#145EAA;
+  --blue2:#2A75C7;
+  --blue3:#0F4B89;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg)}
+body{
+  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:-.02em;
+}
+.page{
+  width:min(100%,480px);
+  min-height:100svh;
+  margin:0 auto;
+  padding:0 14px 54px;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(56,120,195,.045),transparent 30%),
+    linear-gradient(180deg,#FAFCFF 0%,#F3F7FC 100%);
+}
+.letter{min-height:100svh}
+.letter > summary{
+  list-style:none;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  height:100svh;
+  min-height:620px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  outline:none;
+}
+.letter > summary::-webkit-details-marker{display:none}
+.envelope-wrap{
+  width:min(82vw,318px);
+  aspect-ratio:1.58/1;
+  position:relative;
+  perspective:1200px;
+  transform-origin:50% 50%;
+}
+.recipient{
+  position:absolute;
+  inset:0;
+  z-index:30;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:-.03em;
+  pointer-events:none;
+}
+.envelope-card{
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  filter:drop-shadow(0 12px 22px rgba(24,61,103,.11));
+}
+.face{
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.front{
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 86% 10%,rgba(147,204,255,.09),transparent 30%),
+    linear-gradient(145deg,#1A67B5 0%,#155EA9 58%,#104E8E 100%);
+  border:1px solid rgba(255,255,255,.10);
+}
+.front:after{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:6px;
+}
+.back{
+  transform:rotateY(180deg);
+  background:linear-gradient(145deg,#1A63AE,#104D8C);
+  overflow:visible;
+}
+.peek{
+  position:absolute;
+  z-index:2;
+  left:8%;
+  right:8%;
+  bottom:7%;
+  height:79%;
+  border-radius:7px 7px 3px 3px;
+  background:var(--paper);
+  box-shadow:0 5px 14px rgba(22,53,87,.08);
+  transform:translateY(37%);
+  opacity:0;
+}
+.peek:before{
+  content:"";
+  position:absolute;
+  left:20px; top:18px;
+  width:30px;height:1px;border-radius:999px;
+  background:var(--blue);
+  opacity:.30;
+}
+.pocket-left,.pocket-right,.pocket-bottom{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+}
+.pocket-left{
+  clip-path:polygon(0 34%,52% 68%,0 100%);
+  background:linear-gradient(135deg,#1A63AE,#135496);
+}
+.pocket-right{
+  clip-path:polygon(100% 34%,48% 68%,100% 100%);
+  background:linear-gradient(225deg,#1A63AE,#135496);
+}
+.pocket-bottom{
+  clip-path:polygon(0 100%,50% 63%,100% 100%);
+  background:linear-gradient(180deg,#15599F,#0F4782);
+}
+.flap{
+  position:absolute;
+  left:0;top:0;
+  width:100%;height:61%;
+  z-index:5;
+  transform-origin:50% 0%;
+  transform-style:preserve-3d;
+}
+.flap:before,.flap:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  border-radius:10px 10px 0 0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.flap:before{background:linear-gradient(180deg,#2472C0,#155CA6)}
+.flap:after{
+  background:linear-gradient(180deg,#DAECFE,#F1F7FD);
+  transform:rotateX(180deg);
+}
+.hint{
+  position:absolute;
+  left:0;right:0;
+  top:calc(50% + 130px);
+  text-align:center;
+  color:#8B97A5;
+  font-size:11.5px;
+}
+.hint:after{
+  content:"";
+  display:block;
+  width:18px;height:1px;
+  margin:10px auto 0;
+  background:#C8D1DA;
+}
+.letter[open] > summary{animation:collapseSummary 1.85s forwards}
+.letter[open] .recipient{animation:recipientOut .18s forwards}
+.letter[open] .envelope-card{animation:flipEnvelope .58s .18s forwards cubic-bezier(.2,.72,.22,1)}
+.letter[open] .flap{animation:openFlap .52s .78s forwards cubic-bezier(.2,.72,.22,1)}
+.letter[open] .peek{animation:peekPaper .52s 1.02s forwards cubic-bezier(.2,.72,.22,1)}
+.letter[open] .envelope-wrap{animation:compactEnvelope .58s 1.34s forwards cubic-bezier(.2,.72,.22,1)}
+.letter[open] .hint{animation:hintOut .15s forwards}
+@keyframes recipientOut{to{opacity:0;transform:translateY(-3px)}}
+@keyframes flipEnvelope{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}
+@keyframes openFlap{from{transform:rotateX(0)}to{transform:rotateX(177deg)}}
+@keyframes peekPaper{
+  0%{opacity:0;transform:translateY(37%)}
+  20%{opacity:1}
+  100%{opacity:1;transform:translateY(-28%)}
+}
+@keyframes compactEnvelope{
+  from{transform:scale(1) translateY(0)}
+  to{transform:scale(.34) translateY(-28px)}
+}
+@keyframes hintOut{to{opacity:0}}
+@keyframes collapseSummary{
+  0%,72%{height:100svh;min-height:620px}
+  100%{height:108px;min-height:108px}
+}
+.paper-area{
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+}
+.letter[open] .paper-area{
+  animation:showLetter .42s 1.78s forwards ease;
+  pointer-events:auto;
+}
+@keyframes showLetter{to{opacity:1;transform:none}}
+.paper{
+  position:relative;
+  background:
+    linear-gradient(180deg,#FFFEFA 0%,#FFFDF8 100%);
+  border:1px solid rgba(40,49,58,.055);
+  border-radius:2px;
+  box-shadow:0 8px 20px rgba(35,49,65,.035);
+  padding:37px 29px 34px;
+}
+.paper-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:34px;
+  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:.08em;
+  color:#9AA5B1;
+}
+.paper-meta .mark{
+  width:18px;
+  height:1px;
+  background:#79AADB;
+}
+.salutation{
+  margin:0 0 29px;
+  font-family:"AppleMyungjo","NanumMyeongjo","Batang","Times New Roman",serif;
+  font-size:21px;
+  line-height:1.55;
+  font-weight:600;
+  letter-spacing:-.045em;
+  color:#24282D;
+}
+.copy{
+  font-family:"AppleMyungjo","NanumMyeongjo","Batang","Times New Roman",serif;
+  font-size:16.4px;
+  line-height:2.02;
+  font-weight:400;
+  color:#363B41;
+  word-break:keep-all;
+  letter-spacing:-.025em;
+}
+.copy.intro{color:#4A5159}
+.copy p{margin:0 0 14px}
+.copy p:last-child{margin-bottom:0}
+.soft-break{height:17px}
+.rule{
+  width:26px;
+  height:1px;
+  margin:31px 0 30px;
+  background:#B9CFE5;
+}
+.sign{
+  margin-top:38px;
+  padding-top:22px;
+  border-top:1px solid #ECEFF2;
+  text-align:right;
+  font-family:"AppleMyungjo","NanumMyeongjo","Batang","Times New Roman",serif;
+  font-size:15px;
+  font-weight:600;
+  color:#30363C;
+}
+.close-note{
+  margin:18px 0 0;
+  text-align:center;
+  color:#A0AAB5;
+  font-size:10px;
+}
+@media (min-width:430px){
+  .paper{padding:42px 35px 38px}
+}
+@media (prefers-reduced-motion:reduce){
+  .letter[open] > summary{height:108px;min-height:108px;animation:none}
+  .letter[open] .recipient{opacity:0;animation:none}
+  .letter[open] .envelope-card{transform:rotateY(180deg);animation:none}
+  .letter[open] .flap{transform:rotateX(177deg);animation:none}
+  .letter[open] .peek{opacity:0;animation:none}
+  .letter[open] .envelope-wrap{transform:scale(.34) translateY(-28px);animation:none}
+  .letter[open] .hint{opacity:0;animation:none}
+  .letter[open] .paper-area{opacity:1;transform:none;animation:none}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <details class="letter">
+    <summary aria-label="To. 완진 대표님 편지 열기">
+      <div class="envelope-wrap">
+        <div class="recipient">To. 완진 대표님</div>
+        <div class="envelope-card">
+          <div class="face front"></div>
+          <div class="face back">
+            <div class="peek"></div>
+            <div class="flap"></div>
+            <div class="pocket-left"></div>
+            <div class="pocket-right"></div>
+            <div class="pocket-bottom"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hint">눌러서 열어보세요</div>
+    </summary>
+
+    <section class="paper-area">
+      <article class="paper">
+        <div class="paper-meta">
+          <span class="mark"></span>
+          <span>2026. 09. 30</span>
+        </div>
+
+        <h1 class="salutation">완진 대표님께,</h1>
+
+        <div class="copy intro">
+          <p>제가 워낙 악필이라 손편지로는 감사한 마음을 제대로 전하기 어려울 것 같아, 어떻게 인사를 드리면 좋을지 고민하다가 이렇게 작은 편지를 만들어봤습니다.</p>
+          <p>짧게나마 제 마음이 잘 전해졌으면 좋겠습니다.</p>
+        </div>
+
+        <div class="rule"></div>
+
+        <div class="copy">
+          <p>정부지원사업 영역이 밸류에게는 새로운 영역이었는데도 제가 해오던 일을 믿고 과감하게 기회를 주시고 지지해주셔서 정말 감사했습니다.</p>
+          <p>제가 쌓아온 경험을 바탕으로 밸류 안에서 하나의 사업으로 만들어가는 과정을 함께할 수 있었던 것도 저에게는 정말 의미 있는 경험이었습니다.</p>
+          <div class="soft-break"></div>
+          <p>퇴사 말씀을 드렸을 때 다른 직무로라도 계속 함께했으면 좋겠다고 제안해주셨던 것도 오래 기억에 남을 것 같습니다.</p>
+          <p>그렇게까지 믿어주시고 좋게 봐주셨다는 게 정말 감사했고, 한편으로는 그 믿음에 충분히 보답하지 못한 것 같아 죄송한 마음도 컸습니다.</p>
+          <div class="soft-break"></div>
+          <p>현 상황에서 정부지원사업 영역을 밸류 안에 성공적으로 안착시키기에는 제가 아직 더 배우고 채워야 할 부분이 많다는 걸 느꼈습니다.</p>
+          <p>시작한 일을 끝까지 함께 마무리하지 못하고 떠나는 점도 많이 아쉽고 죄송합니다.</p>
+          <div class="soft-break"></div>
+          <p>1년 9개월 동안 밸류에서 지내며 기존에는 알지 못했던 영역들을 정말 많이 배웠고, 제게 주셨던 믿음과 기회도 오래 기억하겠습니다.</p>
+          <p>좋은 기억 오래 간직하겠습니다.</p>
+          <p>그동안 진심으로 감사했습니다.</p>
+        </div>
+
+        <div class="sign">희원 드림</div>
+      </article>
+
+      <p class="close-note">위의 작은 봉투를 누르면 다시 닫힙니다.</p>
+    </section>
+  </details>
+</main>
+</body>
+</html>
